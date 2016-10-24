@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'IYSlideView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of IYSlideView.'
+  s.summary          = 'Expandable UIView with AutoLayout. Expanding from different positions and in different directions.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,17 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+	Subclass of UIViev class that allows the user to open and close the View with the gestures in different directions. Offers four directions gestures: from top to bottom, bottom to top, right to left, left to right. After opening at full size, shows your specified UIViewController as child in container (Just like Container View in Storyboard). Fully supports the Auto layout. Simple installation in 3 steps. Very nice and flexibly customizable animation of opening and closing.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/IYSlideView'
+  s.homepage         = 'https://github.com/1er4y/IYSlideView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Ильнур Ягудин' => 'ilnur.yagudin@moneta.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/IYSlideView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Ilnur Yagudin' => '1er4yy@gmail.com' }
+  s.source           = { :git => 'https://github.com/1er4y/IYSlideView.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/rem1x_69'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.1'
 
   s.source_files = 'IYSlideView/Classes/**/*'
   
@@ -37,6 +37,5 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+	s.frameworks = 'UIKit', 'Foundation'
 end
