@@ -11,28 +11,40 @@ import UIKit
 
 //MARK: Protocols for sending events in parent View Controller
 @objc public protocol IYSlideViewProtocols: NSObjectProtocol {
-    @objc optional func slideViewDidOpen()
+	
+	///Calling when slide view is completely opened on full size. NOT Required.
+	@objc optional func slideViewDidOpen()
+	
+	///Calling when slide view is completely closed to his initial size. NOT Required.
     @objc optional func slideViewDidClosed()
+	
+	///Calling when slide view is prepared to expand and animation of expanding begin. NOT Required.
     @objc optional func slideViewWillOpen()
+	
+	///Calling when slide view is prepared to collapse his initial size and animation of closing begin. NOT Required.
     @objc optional func slideViewWillClosed()
+	
+	///Calling when user make tap on dragging button if button exist. NOT Required.
 	@objc optional func slideViewDragButtonTouched(sender: UIView)
+	
+	///REQUIRED. Implement this protocol to showing your own content in slide view.
     func slideViewPresentViewController(_ containerView: UIView)
 }
 
 //MARK: Settings struct for slider view with different parameters
 ///Settings structure for customization slider view. Required only gragging direction.
 public struct IYViewSettings {
-    var animationSpeed: Double = 0.55
-    var delay: Double = 0
-    var damping: CGFloat = 0.75
-    var initialVelocity: CGFloat = 0.25
-    var animationOptions: UIViewAnimationOptions = [UIViewAnimationOptions.curveEaseIn]
-    var paddingLeft: CGFloat = 16
-    var paddingRight: CGFloat = 16
-    var paddingBottom: CGFloat = 16
-    var paddingTop: CGFloat = 16
-	var dragDirection: IYSlideDirection?
-    var dragDistance: CGFloat = 80
+     public var animationSpeed: Double = 0.55
+     public var delay: Double = 0
+     public var damping: CGFloat = 0.75
+     public var initialVelocity: CGFloat = 0.25
+     public var animationOptions: UIViewAnimationOptions = [UIViewAnimationOptions.curveEaseIn]
+     public var paddingLeft: CGFloat = 16
+     public var paddingRight: CGFloat = 16
+	 public var paddingBottom: CGFloat = 16
+     public var paddingTop: CGFloat = 16
+	 public var dragDirection: IYSlideDirection?
+     public var dragDistance: CGFloat = 80
 }
 
 public enum IYSlideDirection {

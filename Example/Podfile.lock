@@ -1,35 +1,37 @@
 PODS:
-  - FBSnapshotTestCase (2.1.2):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.2)
-  - FBSnapshotTestCase/Core (2.1.2)
-  - FBSnapshotTestCase/SwiftSupport (2.1.2):
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - IYSlideView (0.1.0)
-  - Nimble (3.2.0)
-  - Nimble-Snapshots (4.1.0):
+  - Nimble (5.1.0)
+  - Nimble-Snapshots (4.3.0):
+    - Nimble-Snapshots/Core (= 4.3.0)
+  - Nimble-Snapshots/Core (4.3.0):
     - FBSnapshotTestCase (~> 2.0)
     - Nimble
     - Quick
-  - Quick (0.9.3)
+  - Quick (0.10.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - IYSlideView (from `../`)
-  - Nimble (~> 3.0)
+  - Nimble
   - Nimble-Snapshots
-  - Quick (~> 0.8)
+  - Quick
 
 EXTERNAL SOURCES:
   IYSlideView:
     :path: ../
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   IYSlideView: 7b1ba13233e93ffb25c7d5e5e834ff7ebe30c3b8
-  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
-  Nimble-Snapshots: 2da4d2ec829b458d6886c06812c52493fce284c9
-  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
+  Nimble: 5ea121a2eda60440287054cde077fc0ad22227b3
+  Nimble-Snapshots: 4ba722c35b73a680cbd856e4bc22076dfb8085d4
+  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
 
-PODFILE CHECKSUM: f7eb3f31ea45ac7fc65a1259e47c333fc3782320
+PODFILE CHECKSUM: 4798d6e0e3150692ecc89f94d5a021872c9ad4d7
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.1.1
