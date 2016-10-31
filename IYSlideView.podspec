@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IYSlideView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Expandable UIView with AutoLayout. Expanding from different positions and in different directions.'
 
 # This description is used to generate tags and improve search results.
