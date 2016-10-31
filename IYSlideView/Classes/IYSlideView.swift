@@ -34,19 +34,48 @@ import UIKit
 //MARK: Settings struct for slider view with different parameters
 ///Settings structure for customization slider view. Required only gragging direction.
 public struct IYViewSettings {
+	
+     /// Speed of expanding or closing expandable view
      public var animationSpeed: Double = 0.55
+	
+	 /// Delay before animation
      public var delay: Double = 0
-     public var damping: CGFloat = 0.75
+	
+     /// Damping it's parameter from Spring animation. Reference to Apple docs
+	 public var damping: CGFloat = 0.75
+	
+     /// Velocity is like Damping from Spring animation.
      public var initialVelocity: CGFloat = 0.25
+	
+     ///Animation options
      public var animationOptions: UIViewAnimationOptions = [UIViewAnimationOptions.curveEaseIn]
+	
+     /// Padding from left side of slide view in container view
      public var paddingLeft: CGFloat = 16
+	
+     /// Padding from right side of slide view in container view
      public var paddingRight: CGFloat = 16
+	
+	 /// Padding from bottom side of slide view in container view
 	 public var paddingBottom: CGFloat = 16
+	
+     /// Padding Top from top side of slide view in container view
      public var paddingTop: CGFloat = 16
+	
+	 /// Dragging direction to expand slider view. Available four directions: Down, Up, Right, Left.
 	 public var dragDirection: IYSlideDirection?
+	
+     /// Distance to dragging before slider is will expand
      public var dragDistance: CGFloat = 80
 }
 
+
+/// Enum for drag direction.
+///
+/// - up:    Set this direction if need to expand view from Bottom to Top
+/// - down:  Set this direction if need to expand view from Top to Botton
+/// - left:  Set this direction if need to expand view from Right to Left
+/// - right: Set this direction if need to expand view from Left to Right
 public enum IYSlideDirection {
     case up
     case down
@@ -54,6 +83,11 @@ public enum IYSlideDirection {
     case right
 }
 ///Enum instead bool flag may be useful for adding custom view states, example: currentExpanding state
+
+/// Private enum for internal using
+///
+/// - expanded: View is expanded
+/// - closed:   View is closed
 private enum IYSlideState {
     case expanded
     case closed
