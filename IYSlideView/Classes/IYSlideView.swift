@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 //MARK: Protocols for sending events in parent View Controller
+/// Protocols for work with your slider view. Required only one method `slideViewPresentViewController`.
 @objc public protocol IYSlideViewProtocols: NSObjectProtocol {
 	
 	///Calling when slide view is completely opened on full size. NOT Required.
@@ -94,9 +95,12 @@ private enum IYSlideState {
 }
 
 //MARK: beginning implementation
+///Global class where all magic will be executed.
 open class IYSlideView: UIView {
     
     //Public variables
+	
+	/// Delegate. Usual is will be your View controller. Delegate need to set AFTER setting dragging direction.
 	open var delegate: IYSlideViewProtocols? {
 		didSet {
 			guard let container = controllerContainer else {
@@ -108,6 +112,9 @@ open class IYSlideView: UIView {
 			addContainerConstraints()
 		}
 	}
+	
+	
+    /// Settings of slider view. Recommend to play with settings to configure slider view for your requirements.
     open var settings: IYViewSettings = IYViewSettings()
     
     //Private variables. Don't change this vars externally
@@ -125,14 +132,22 @@ open class IYSlideView: UIView {
     private var slideViewInitialWidth: CGFloat?
     
     //MARK: Initialization
+	
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    /// Default UIView initialization
+    ///
+    /// - parameter frame: frame
+    ///
+    /// - returns: frame
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+	
     
+    /// When initialization is completed, slider view preparing container for your controller, initialize drag gesture and etc.
     override open func awakeFromNib() {
         super.awakeFromNib()
         initControllerContainer()
@@ -141,6 +156,7 @@ open class IYSlideView: UIView {
         slideViewInitialWidth = width.constant
     }
 
+    /// When iOS will make layout for views, slider view will recalculate expanding sizes. Thats allow to response on device rotation events.
     override open func layoutSubviews() {
         super.layoutSubviews()
         if let parentView = superview {
