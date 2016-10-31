@@ -1,30 +1,32 @@
 //
-//  TopToBottomController.swift
+//  WithoutDragBtnController.swift
 //  IYSlideView
 //
-//  Created by Ilnur Yagudin on 28/10/2016.
+//  Created by Ilnur Yagudin on 31/10/2016.
 //  Copyright © 2016 CocoaPods. All rights reserved.
 //
 
 import UIKit
 import IYSlideView
 
-class TopToBottomController: UIViewController, IYSlideViewProtocols {
-
+class WithoutDragBtnController: UIViewController, IYSlideViewProtocols {
+	
+	
 	@IBOutlet weak var sliderView: IYSlideView!
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		sliderView.settings.dragDirection = .down
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		sliderView.settings.dragDirection = .right
+		sliderView.settings.paddingLeft = 8
 		sliderView.delegate = self
+		
+		// Do any additional setup after loading the view.
+	}
 	
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
 	
 	func slideViewPresentViewController(_ containerView: UIView) {
 		let controller = self.storyboard?.instantiateViewController(withIdentifier: "sliderViewPresentingController")
@@ -33,7 +35,7 @@ class TopToBottomController: UIViewController, IYSlideViewProtocols {
 		containerView.addSubview(controller!.view)
 		self.didMove(toParentViewController: self)
 	}
-    
+	
 
     /*
     // MARK: - Navigation
