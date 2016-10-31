@@ -192,13 +192,14 @@ open class IYSlideView: UIView {
             maxExpandingWidth = parentViewWidth - settings.paddingRight - frame.minX
         }
     }
-    
+	
+	///Init container
     private func initControllerContainer() {
-        //init container
+		///init container
         controllerContainer = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.frame.width, height: self.frame.height)))
         controllerContainer?.backgroundColor = UIColor.black
 		
-        //checking that's everything is ok
+		///checking that's everything is ok
         guard let controllerContainer = controllerContainer else {
             print("IYSliderView: Can't initialize controller container in view")
             return
@@ -207,7 +208,7 @@ open class IYSlideView: UIView {
         addSubview(controllerContainer)
     }
 	
-	//setup and add constraints for container
+	///setup and add constraints for container
 	private func addContainerConstraints() {
 		guard let controllerContainer = controllerContainer else {
 			print("IYSliderView: Can't initialize controller container in view")
@@ -280,6 +281,7 @@ open class IYSlideView: UIView {
 		NSLayoutConstraint.activate(allConstraints)
 	}
 	
+	///Init gestureRecognizer
     private func initDragGesture() {
         dragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleDrag(sender:)))
         addGestureRecognizer(dragRecognizer)
@@ -289,6 +291,8 @@ open class IYSlideView: UIView {
     }
     
     //MARK: Dragging gesture handler
+	
+	///Called when gesture recognizer working
     @objc private func handleDrag(sender: UIPanGestureRecognizer) {
         
         guard let parentView = superview else {
@@ -350,7 +354,8 @@ open class IYSlideView: UIView {
         default: break
         }
     }
-    
+	
+	///For determinate user dragging distance
     private func getValue(forDirection: IYSlideDirection, inTranslation: CGPoint) -> CGFloat{
         switch forDirection {
         case .down:
@@ -364,7 +369,7 @@ open class IYSlideView: UIView {
         }
     }
 	
-	//Handle drag button touch, if drag button exist
+	///Handle drag button touch, if drag button exist
 	@objc private func dragButtonTouch(sender: UIButton) {
 		if dragButton != nil {
 			delegate?.slideViewDragButtonTouched?(sender: self)
@@ -376,7 +381,7 @@ open class IYSlideView: UIView {
      For a better customization, these methods I wrote separately to have had the opportunity to change anything on each type of animation.
      */
     
-    //method, for when slider view expanding on full size
+	///method, for when slider view expanding on full size
     private func expandView(animated: Bool) {
         guard let parentView = superview else {
             print("IYSliderView: Can't get access to superview")
@@ -405,7 +410,7 @@ open class IYSlideView: UIView {
         }
     }
     
-    //method, for when slider view collapsing to inital size
+	///method, for when slider view collapsing to inital size
     private func collapseView(animated: Bool) {
         guard let parentView = superview else {
             print("IYSliderView: Can't get access to superview")
@@ -441,8 +446,8 @@ open class IYSlideView: UIView {
         }
     }
     
-    //this method calling when user start to drag view from NOT EXPANDED state, but release finger earlier than need and view starts to
-    //collapse in his initial state
+	///this method calling when user start to drag view from NOT EXPANDED state, but release finger earlier than need and view starts to
+	///collapse in his initial state
     private func collapseToStartedForm(animated: Bool) {
         guard let parentView = superview else {
             print("IYSliderView: Can't get access to superview")
@@ -474,7 +479,7 @@ open class IYSlideView: UIView {
         
     }
     
-    //this method calling, when user start to drag view to close him from FULLY EXPANDED state, but release finger too early and view starts to expand on full size again
+	///this method calling, when user start to drag view to close him from FULLY EXPANDED state, but release finger too early and view starts to expand on full size again
     private func expandToStartedForm(animated: Bool) {
         guard let parentView = superview else {
             print("IYSliderView: Can't get access to superview")
