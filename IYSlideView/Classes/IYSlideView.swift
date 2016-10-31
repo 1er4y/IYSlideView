@@ -78,9 +78,17 @@ public struct IYViewSettings {
 /// - left:  Set this direction if need to expand view from Right to Left
 /// - right: Set this direction if need to expand view from Left to Right
 public enum IYSlideDirection {
-    case up
-    case down
+	
+	/// Set this direction if need to expand view from Bottom to Top
+	case up
+	
+	/// Set this direction if need to expand view from Top to Botton
+	case down
+	
+	///Set this direction if need to expand view from Right to Left
     case left
+	
+	///Set this direction if need to expand view from Left to Right
     case right
 }
 ///Enum instead bool flag may be useful for adding custom view states, example: currentExpanding state
@@ -95,6 +103,7 @@ private enum IYSlideState {
 }
 
 //MARK: beginning implementation
+
 ///Global class where all magic will be executed.
 open class IYSlideView: UIView {
     
@@ -133,6 +142,7 @@ open class IYSlideView: UIView {
     
     //MARK: Initialization
 	
+	///Default UIView init
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
