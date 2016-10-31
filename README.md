@@ -24,7 +24,7 @@ Installation in 2 parts: Setup in Storyboard and Setup in Code
 	
 	1.2. If you want, drag&drop in your slider view `Button`. In this instruction, we will use Button.
 	
-	1.3. In `Interface Builder`, click on `Identity Inspector` tab and in fields `Custom Class` and `Module` type 'IYSlideView'
+	1.3. Select your created View and in `Interface Builder`, click on `Identity Inspector` tab and in fields `Custom Class` and `Module` type 'IYSlideView'
 	
 	1.4. After that, add to your empty view constraints:	`Horizontal in container`, `Space from Top`, and `Width` with `Height`
 	
