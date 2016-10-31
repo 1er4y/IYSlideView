@@ -27,42 +27,42 @@ Installation in 2 steps:
 
 2 Step:
 2.1 Open your View Controller class and add following line in imports 
-`swift
+```swift
 import IYSlideView
-`
+```
 2.2 Now, you need implement IYSlideViewProtocols. For do that, add:
-`swift
+```swift
 class <nameOfYourVc>: UIViewController, IYSlideViewProtocols {
 ....
 }
-`
+```
 2.3 Then, you need implement minimum one required protocol method:
-`swift
+```swift
 func slideViewPresentViewController(_ containerView: UIView) {
 
 }
-`
+```
 2.4 Add following line in your View Controller to create Outlet with slider view:
-`swift
+```swift
 	@IBOutlet weak var sliderView: IYSlideView!
-`
+```
 and connect them from Storyboard.
 
 Almost done.
 
 2.5 In method viewDidLoad in your VC add this lines:
-`swift
+```swift
 	sliderView.settings.dragDirection = .down //Drag direction is required
 	sliderView.delegate = self //required
-`
+```
 2.6 Finally, add this lines in slideViewPresentViewController method (this method we implemented earlier):
-`swift 
+```swift 
 	let controller = self.storyboard?.instantiateViewController(withIdentifier: "<PresentingViewControllerStoryboardID>")
 	self.addChildViewController(controller!)
 	controller?.view.frame = containerView.bounds
 	containerView.addSubview(controller!.view)
 	self.didMove(toParentViewController: self)
-`
+```
 Note: Replace "PresentingViewControllerStoryboardID" with StoryboardID of View Controller that you want present in slider view.
 
 IYSlideView is available through [CocoaPods](http://cocoapods.org). To install
